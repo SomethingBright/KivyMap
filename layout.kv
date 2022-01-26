@@ -1,0 +1,41 @@
+#: import MapView kivy_garden.mapview.MapView
+<MapViewExample>:
+    MapView:
+        id: map
+        lat: 50.46683
+        lon: 30.63908
+        zoom: 10
+        on_lat: print('Lat', self.lat)
+        on_lon: print('Lon', self.lon)
+        double_tap_zoom: True
+        MapMarkerPopup:
+            source: "marker.png"
+            lat: 49.8369
+            lon: 24.0375
+            Label:
+                color: 0,0,0,1
+                text: "Lorem Ipsum, але на українській"
+        MapMarkerPopup:
+            source: "marker.png"
+            lat: 50.4668
+            lon: 30.6390
+            Button:
+                background_down: "popup.png"
+                background_normal: "popup.png"
+                on_release: print("hey")
+    BoxLayout:
+        pos_hint: {'top': 1}
+        size_hint: 0.2, 0.5
+        orientation: "vertical"
+        Button:
+            text: "Return Home"
+            pos_hint: {'top': 1}
+            size_hint: 1, 1
+            on_release: root.return_home()
+        Button:
+            text: "GOTO Lvyv"
+            pos_hint: {'top':1}
+            size_hint: 1, 1
+            on_release: root.goto()  
+        TextInput:
+            text: "Тут могла бути ваша реклама, а можливо якась змінна"
